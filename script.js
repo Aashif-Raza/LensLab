@@ -110,7 +110,7 @@ function initializeEventHandlers() {
   // Social media links with proper URLs
   const socialLinks = document.querySelectorAll('.social-links a');
   const socialUrls = [
-    'https://facebook.com/nonexistent-profile-12345',
+    'https://facebook.com/',
     'https://www.instagram.com/aasifraza_0786/?hl=en#',
     'https://x.com/AashifR88038',
     'https://youtube.com/channel/INVALID_CHANNEL_ID'
