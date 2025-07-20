@@ -1,3 +1,5 @@
+Deployed Link: https://dynamic-sfogliatella-51895f.netlify.app/
+
 # Md Aashif Raza - LensLab
 
 LensLab is a fully responsive photography portfolio website designed to showcase My front-end development skills and creative flair through an engaging user interface and interactive features.
@@ -60,4 +62,30 @@ LensLab is a fully responsive photography portfolio website designed to showcase
 ### Using a Local Server (Recommended)
 
 For the best development experience, use a local server:
+
+
+## ✉️ Contact Form & EmailJS Integration
+
+The Contact section uses [EmailJS](https://www.emailjs.com/) to send messages directly from the website to the owner’s email address. When a user submits the contact form:
+- The message is sent securely using EmailJS (no backend required).
+- The user receives an automated confirmation email (auto-reply) with the following content:
+
+  > Hi [Your Name],
+  >
+  > Thank you for reaching out! 🙌
+  >
+  > We’ve received your message:
+  >
+  > "[Your Message]"
+  >
+  > We’ll get back to you as soon as possible, typically within 24 hours.
+  >
+  > Best regards,
+  > Md Aashif Raza
+  >
+  > ---
+  >
+  > This is an automated confirmation email. Please do not reply directly to this message.
+
+The notification on the website also displays this confirmation message after a successful submission.
 
