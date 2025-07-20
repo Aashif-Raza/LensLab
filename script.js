@@ -198,27 +198,38 @@ function initializeScrollEffects() {
 
 // Form handling
 function initializeFormHandling() {
-  const contactForm = document.querySelector('.contact-form form');
+  const contactForm = document.getElementById('contact-form');
   
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
       
-      const formData = new FormData(this);
       const submitBtn = this.querySelector('.submit-btn');
       const originalText = submitBtn.textContent;
       
       // Show loading state
       submitBtn.textContent = 'Sending...';
       submitBtn.disabled = true;
-      
-      // Simulate form submission
-      setTimeout(() => {
-        showNotification('Thank you for your message! I\'ll get back to you soon.', 'success');
-        this.reset();
+
+      // Initialize EmailJS
+      if (window.emailjs) {
+        emailjs.init('fyJCsJKO47hJDArDl');
+        emailjs.sendForm('000677', 'template_iffqm6g', this)
+          .then(() => {
+            showNotification(`Hi ${this.elements['user_name'].value},<br><br>Thank you for reaching out! 🙌<br><br>We’ve received your message:<br><blockquote>"${this.elements['message'].value}"</blockquote><br>We’ll get back to you as soon as possible, typically within 24 hours.<br><br>Best regards,<br>Md Aashif Raza<br><hr><small>This is an automated confirmation email. Please do not reply directly to this message.</small>`, 'success');
+            this.reset();
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+          }, (error) => {
+            showNotification('Sorry, there was an error sending your message. Please try again later.', 'error');
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+          });
+      } else {
+        showNotification('Email service not loaded. Please try again later.', 'error');
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
-      }, 2000);
+      }
     });
   }
 }
