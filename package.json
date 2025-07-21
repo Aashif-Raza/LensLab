@@ -1,0 +1,25 @@
+{
+  "name": "md-aashif-raza---lenslab",
+  "version": "1.0.0",
+  "description": "Deployed Link: https://dynamic-sfogliatella-51895f.netlify.app/",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aashif-Raza/LensLab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aashif-Raza/LensLab/issues"
+  },
+  "homepage": "https://github.com/Aashif-Raza/LensLab#readme",
+  "devDependencies": {
+    "dotenv-webpack": "^8.1.1",
+    "webpack": "^5.100.2",
+    "webpack-cli": "^6.0.1"
+  }
+}

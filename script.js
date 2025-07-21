@@ -213,10 +213,25 @@ function initializeFormHandling() {
 
       // Initialize EmailJS
       if (window.emailjs) {
-        emailjs.init('fyJCsJKO47hJDArDl');
-        emailjs.sendForm('000677', 'template_iffqm6g', this)
+        emailjs.init(process.env.EMAILJS_PUBLIC_KEY);
+        emailjs.sendForm(
+          process.env.EMAILJS_SERVICE_ID,
+          process.env.EMAILJS_TEMPLATE_ID,
+          this
+        )
           .then(() => {
-            showNotification(`Hi ${this.elements['user_name'].value},<br><br>Thank you for reaching out! 🙌<br><br>We’ve received your message:<br><blockquote>"${this.elements['message'].value}"</blockquote><br>We’ll get back to you as soon as possible, typically within 24 hours.<br><br>Best regards,<br>Md Aashif Raza<br><hr><small>This is an automated confirmation email. Please do not reply directly to this message.</small>`, 'success');
+            showNotification(
+              `Hi ${this.elements['name'].value},<br><br>
+              Thank you for reaching out! 🙌<br><br>
+              We’ve received your message:<br>
+              <blockquote>"${this.elements['message'].value}"</blockquote><br>
+              We’ll get back to you as soon as possible, typically within 24 hours.<br><br>
+              Best regards,<br>
+              Md Aashif Raza<br>
+              <hr>
+              <small>This is an automated confirmation email. Please do not reply directly to this message.</small>`,
+              'success'
+            );
             this.reset();
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
